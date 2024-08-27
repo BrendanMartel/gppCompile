@@ -1,13 +1,6 @@
 This script is used to compile a c++ file and run the output of the compilation.
 The script will also capture the output into a text file depending on the second perameter (see below) \***_THIS SCRIPT ONLY RUNS IN BASH SO IT WONT WORK ON WINDOWS_**
 
-    ~~IMPORTANT COMPATIBILITY ISSUES:~~
-        ~~This script will only work with cpp cin and cout. If you use C input methods like fscan it will hang and not work.~~
-            ~~Its also important that you use "" when inclosing text and not '' if you use them it will output random stuff to the console.~~
-            ~~As long as you stick to standard cpp in and out this script should log it correctly.~~
-
-        ~~It is also important you cout any inputes taken from the user as it doesnt capture the user inputs only stdout.~~
-
     COMPILER COMPATIBILITY:
         By Default this script uses the g++ compiler.That means you will need to have it installed.
             -You can check this by runing "g++ -v" in the command line.
