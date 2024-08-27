@@ -1,0 +1,10 @@
+Script started on 2024-08-26 17:04:29-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="263" LINES="16"]
+Oh, no! Curse you, Evil Captain Retcon!
+Length for 6.25 seconds is 9.69675 meters
+Length for 6.25 seconds is 31.8135 feet
+Since Evil Captain Retcon has the heroic Omnicron tied
+25 feet beneath the fulcrum of the swinging blade.
+Poor Omnicron is cut in half!
+Press enter to continue
+
+Script done on 2024-08-26 17:04:30-05:00 [COMMAND_EXIT_CODE="0"]

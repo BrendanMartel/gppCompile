@@ -44,7 +44,7 @@
 
     PERAMETERS:
         First: name of file to be compiled and run
-        Second(optional): if you want output sent to a output.txt in the working dir enter "1" if not dont enter anything
+        Second(optional): Passing a "1" here will send all terminal output to a output.txt in the working dir
 
         EXAMPLE: gppcomp First Second
     
@@ -59,13 +59,14 @@ END_COMMENT
 ############################################################################
 
 COMPILER="g++"
+TEMP='NULL'
+SCRIPTTEMP='NULL'
 
 ############################################################################
 ############################################################################
 # peram scrubbing and help handling
 ############################################################################
 ############################################################################
-
 
 
 if [ "$1" == "--help" ]; then
@@ -84,7 +85,7 @@ if [ "$1" == "--help" ]; then
 
         Perams:
             First: name of file to be compiled and run
-            Second(optional): if you want output sent to a output.txt in the working dir enter "1" if not dont enter anything
+            Second(optional): Passing a "1" here will send all terminal output to a output.txt in the working dir
 
         EXAMPLE: gppcomp First Second
 END_BLOCK
@@ -106,6 +107,8 @@ fi
 # compiling file and handling output
 ############################################################################
 ############################################################################
+
+
 
 #creates a temp file and outputs any errors to the tmp file
 TEMP="$(mktemp)"
@@ -132,17 +135,16 @@ else
 fi
 
 
-#handling both cases for the output file
-if [[ $2 == "1" ]]; then
-    if [[ -e "output.txt" ]]; then
-        rm output.txt
-    fi
-    touch "output.txt"
-fi
 
 #running the script and pipeing the output if logging is enabled
 if [[ $2 == "1" ]]; then
-    ./a.out | tee output.txt
+    SCRIPTTEMP="$(mktemp)"
+    script -B output.txt -T $SCRIPTTEMP -m advanced -c ./a.out -q -E never
 else 
     ./a.out
 fi
+
+
+
+
+exit 0
