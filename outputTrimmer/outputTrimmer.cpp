@@ -65,7 +65,7 @@ int main(int argNum, char **argArr)
     char arrOut[200][200] = {"\0"};
 
     int lineCount = 0,
-        debug = 1,
+        debug = 0,
         wordInc = 0,
         charInc = 0;
 
@@ -127,7 +127,7 @@ int main(int argNum, char **argArr)
     else
     {
         // used to catch if the file DNE or cant be opened
-        cout << "The output.txt file does not exist or could not be opened";
+        cout << "The output.txt file does not exist or could not be opened" << endl;
         return 1;
     };
 
