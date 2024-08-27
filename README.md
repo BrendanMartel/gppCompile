@@ -1,6 +1,8 @@
 This script is used to compile a c++ file and run the output of the compilation.
 The script will also capture the output into a text file depending on the second perameter (see below) \***_THIS SCRIPT ONLY RUNS IN BASH SO IT WONT WORK ON WINDOWS_**
 
+#additional Note: When recording your keystrokes for input will not apear. This is not a bug this is how the unix script command captures input. They are still there just not appearing in the stdout
+
     COMPILER COMPATIBILITY:
         By Default this script uses the g++ compiler.That means you will need to have it installed.
             -You can check this by runing "g++ -v" in the command line.
