@@ -29,7 +29,7 @@
             4. restart the terminal and you should be able to use the gppcomp command
 
     USING THIS COMMAND:
-        If you want to use the command all you have to do it:
+        If you want to use the command all yThis is the line I want to matchou have to do it:
             1.Open a terminal and cd to the directory you have your .cpp file in
             2.Enter the command "gppcomp" followed by the nessicary perameters (see below)
             3.The script will compile and run the program for you and will create a a.out executable in your working directory. 
@@ -53,10 +53,14 @@ END_COMMENT
 ############################################################################
 
 COMPILER="g++"
+BASHRCDIR='NULL'
 TEMP='NULL'
 SCRIPTTEMP='NULL'
 WORKINGDIR="$(pwd)"
-HELPERLOCAL="null"
+RANDVAR='null'
+#getting the location of the helper OutputTrimmer 
+HELPERLOCAL="$( cd "$( dirname "${BASH_SOURCE[0]}" )" 2> /dev/null && pwd )"
+cd $WORKINGDIR
 
 ############################################################################
 ############################################################################
@@ -85,6 +89,33 @@ if [ "$1" == "--help" ]; then
 
         EXAMPLE: gppcomp First Second
 END_BLOCK
+    exit 1
+
+elif [ "$1" == "-i" ]; then
+    echo '----------------Begining installation----------------'
+
+    cd ~/
+    BASHRCDIR="$(pwd)" 
+    
+    #this if statment checks to see if you have the 
+
+    if ls -a | grep .bash_aliases &> /dev/null
+    then
+        if grep -Fxq "alias gppcomp='$HELPERLOCAL/gppcomp.sh'" .bash_aliases
+        then
+            echo 'It seems that you already have the tool installed'
+        else
+            echo "copying in alias to $BASHRCDIR/.bash_aliases"
+            echo "alias gppcomp='$HELPERLOCAL/gppcomp.sh'" >> "$BASHRCDIR/.bash_aliases"
+            source ~/.bashrc
+        fi  
+    else
+        echo "creating file .bash_aliases in $BASHRCDIR and copying in alias"
+        touch .bash_aliases
+        echo "alias gppcomp='$HELPERLOCAL/gppcomp.sh'" >> "$BASHRCDIR/.bash_aliases"
+        source ~/.bashrc
+    fi
+
     exit 1
 
 elif [ -e $1 ]; then
@@ -140,8 +171,7 @@ else
     ./a.out
 fi
 
-#getting the location of the helper OutputTrimmer and executing it in workingdir
-HELPERLOCAL="$( cd "$( dirname "${BASH_SOURCE[0]}" )" 2> /dev/null && pwd )"
+
 cd "${WORKINGDIR}"
 eval "${HELPERLOCAL}/outTrimHelper"
 
