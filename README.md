@@ -18,19 +18,19 @@ The script will capture the output into a text file depending on the second pera
 
 3. While staying in the same directory from the prvious step run "./gppcomp.sh -i" to install the tool into the cli
 
-4. After this you will be able to call the tool with "gppcomp" followed by any peramiters in any terminal. 
+4. After this you will be able to call the tool with "gppcomp" followed by any parameters in any terminal. 
 
 5. If at any time you forget what to do type "gppcomp --help" to display the help page
 
 # USING THIS COMMAND:
 - If you want to use the command all you have to do it:
     1. Open a terminal and cd to the directory you have your .cpp file in
-    2. Enter the command "gppcomp" followed by the nessicary perameters (see below)
+    2. Enter the command "gppcomp" followed by the nessicary parameters (see below)
     3. The script will compile and run the program for you and will create a a.out executable in your working directory. 
 
 ### *This command is best used in the integrated terminal of a IDE like vscode. Whatever IDE you use there are probably options to use this script to run your files.  
 
-# PERAMETERS:
+# PARAMETERS:
 - First: name of file to be compiled and run
 - Second(optional): Passing a "1" here will send all terminal output to a output.txt in the working dir
 
